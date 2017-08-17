@@ -1,0 +1,357 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="project-structure.html" />
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="project-structure.html">
+            
+                <a href="project-structure.html">
+            
+                    
+                    Project Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="languages-and-frameworks.html">
+            
+                <a href="languages-and-frameworks.html">
+            
+                    
+                    Languages and Frameworks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="package-scripts.html">
+            
+                <a href="package-scripts.html">
+            
+                    
+                    Package Scripts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Options.html">
+            
+                <a href="Options.html">
+            
+                    
+                    Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="HMR.html">
+            
+                <a href="HMR.html">
+            
+                    
+                    Hot Module Replacement
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="configuration-files.html">
+            
+                <a href="configuration-files.html">
+            
+                    
+                    Configuration Files
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="electron-webpack-">electron-webpack <a href="https://npmjs.org/package/electron-webpack" target="_blank"><img src="https://img.shields.io/npm/v/electron-webpack.svg" alt="npm version"></a></h1>
+<p>Configurations and scripts to compile Electron applications.</p>
+<h2 id="install">Install</h2>
+<ol>
+<li><code>yarn add webpack electron-webpack --dev</code></li>
+<li><code>yarn add source-map-support</code></li>
+<li>Install support for various <a href="languages-and-frameworks.html">languages and frameworks</a> &#x2014;
+<a href="languages-and-frameworks.html#typescript">TypeScript</a>,
+<a href="languages-and-frameworks.html#vuejs">Vue.js</a> and
+<a href="languages-and-frameworks.html#less">Less</a> if need.</li>
+</ol>
+<p><a href="http://yarnpkg.com/" target="_blank">Yarn</a> is recommended instead of npm.</p>
+<p>Real project example &#x2014; <a href="https://github.com/electron-userland/electrify" target="_blank">electrify</a>.</p>
+<h2 id="hot-module-replacement">Hot Module Replacement</h2>
+<p><a href="HMR.html">Fast development</a> without reloading is supported for both main and renderer processes.</p>
+<h2 id="differences-between-electron-compile">Differences between electron-compile</h2>
+<ul>
+<li><a href="https://webpack.js.org/concepts/hot-module-replacement/" target="_blank">Hot Module Replacement</a> for virtually anything and even for main process. electron-compile <a href="https://github.com/electron/electron-compile#live-reload--hot-module-reloading" target="_blank">live reload</a> is limited and works only for some file types.</li>
+<li>Faster Builds (e.g. <a href="https://github.com/TypeStrong/ts-loader#faster-builds" target="_blank">typescript</a> or <a href="https://github.com/amireh/happypack" target="_blank">generic</a>).</li>
+<li>No runtime dependencies.</li>
+<li>... and so on. electron-compile is not comparable to <a href="https://webpack.js.org" target="_blank">webpack</a> because webpack is widely used and popular. There are a lot features, loaders and plugins. And because community is big, answers to any question. Special tool for Electron not required, <a href="https://webpack.js.org/configuration/target/#string" target="_blank">electron</a> is directly and explicitly supported by webpack.</li>
+</ul>
+<p>But keep things simple. electron-compile offers you zero-config setup without predefined project structure and simple on the fly runtime transformation. And for simple projects, even direct usage of <code>typescript</code>/<code>babel</code> maybe enough (<a href="https://github.com/develar/onshape-desktop-shell" target="_blank">example</a>).</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><a href="https://github.com/evanw/node-source-map-support" target="_blank">source-map-support</a> is recommended and supported out of the box, simply install it <code>yarn add source-map-support</code> and that&apos;s all.</li>
+<li><a href="https://github.com/RoccoC/webpack-build-notifier" target="_blank">webpack-build-notifier</a> is supported, simply install it <code>yarn add webpack-build-notifier --dev</code> and it will automatically enabled for development.</li>
+</ul>
+<h2 id="debug">Debug</h2>
+<p>Set the <a href="https://github.com/visionmedia/debug#windows-note" target="_blank">DEBUG</a> environment variable to debug what electron-webpack is doing:</p>
+<pre><code class="lang-bash">DEBUG=electron-webpack:*
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="project-structure.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Project Structure">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Project Structure","level":"1.2","depth":1,"path":"project-structure.md","ref":"project-structure.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"README.md","mtime":"2017-08-17T09:32:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-17T09:34:33.778Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
