@@ -237,7 +237,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>electron-webpack configuration can be defined in the <code>package.json</code> file of your project using the <code>build</code> key on the top level:</p>
+                                <p>electron-webpack configuration can be defined in the <code>package.json</code> file of your project using the <code>electronWebpack</code> key on the top level:</p>
 <pre><code class="lang-json"> <span class="hljs-string">&quot;electronWebpack&quot;</span>: {
    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-literal">true</span>
  }
@@ -260,6 +260,7 @@ mainWindow.on(<span class="hljs-string">&quot;page-title-updated&quot;</span>, e
 })
 </code></pre>
 <h2 id="extra-main-entry-points">Extra Main Entry Points</h2>
+<p>If need, you can add additional <a href="https://webpack.js.org/concepts/entry-points/" target="_blank">entry points</a>.</p>
 <pre><code class="lang-json"><span class="hljs-string">&quot;electronWebpack&quot;</span>: {
   <span class="hljs-string">&quot;main&quot;</span>: {
       <span class="hljs-string">&quot;extraEntries&quot;</span>: [<span class="hljs-string">&quot;@/foo.js&quot;</span>]
@@ -274,7 +275,6 @@ Because Webpack will smartly copy only required files and as result, application
 No doubt, <a href="https://github.com/electron-userland/electron-builder/wiki/Options#Config-files" target="_blank">files</a> allows you to filter out anything you want, but it is tedious to write and maintain.</p>
 <h2 id="dll">DLL</h2>
 <p>The <a href="https://webpack.js.org/plugins/dll-plugin/" target="_blank">Dll</a> provide means to split bundles in a way that can drastically <a href="https://robertknight.github.io/posts/webpack-dll-plugins/" target="_blank">improve build time</a> performance.</p>
-<p>Supported out of the box, specify in the <code>package.json</code>:</p>
 <pre><code class="lang-json"><span class="hljs-string">&quot;electronWebpack&quot;</span>: {
   <span class="hljs-string">&quot;renderer&quot;</span>: {
     <span class="hljs-string">&quot;dll&quot;</span>: [
@@ -285,8 +285,8 @@ No doubt, <a href="https://github.com/electron-userland/electron-builder/wiki/Op
 }
 </code></pre>
 <h2 id="white-listing-externals">White-listing Externals</h2>
-<p>Please see <a href="https://simulatedgreg.gitbooks.io/electron-vue/content/en/webpack-configurations.html#white-listing-externals" target="_blank">White-listing Externals</a>.
-<code>electron-webpack</code> supports setting this option in the <code>package.json</code>:</p>
+<p>One important thing to consider about this config is that you can whitelist specific modules to not treat as webpack <a href="https://webpack.js.org/configuration/externals/" target="_blank">externals</a>.
+There aren&apos;t many use cases where this functionality is need, but for the case of Vue UI libraries that provide raw <code>*.vue</code> components they will need to be whitelisted, so <code>vue-loader</code> is able to compile them. <code>vue</code> is already in the whitelist.</p>
 <pre><code class="lang-json"><span class="hljs-string">&quot;electronWebpack&quot;</span>: {
   <span class="hljs-string">&quot;whiteListedModules&quot;</span>: [<span class="hljs-string">&quot;dependency-name&quot;</span>]
 }
@@ -334,7 +334,7 @@ No doubt, <a href="https://github.com/electron-userland/electron-builder/wiki/Op
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Options","level":"1.5","depth":1,"next":{"title":"Hot Module Replacement","level":"1.6","depth":1,"path":"HMR.md","ref":"HMR.md","articles":[]},"previous":{"title":"Package Scripts","level":"1.4","depth":1,"path":"package-scripts.md","ref":"package-scripts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"Options.md","mtime":"2017-08-16T06:56:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-17T16:17:35.110Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Options","level":"1.5","depth":1,"next":{"title":"Hot Module Replacement","level":"1.6","depth":1,"path":"HMR.md","ref":"HMR.md","articles":[]},"previous":{"title":"Package Scripts","level":"1.4","depth":1,"path":"package-scripts.md","ref":"package-scripts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"Options.md","mtime":"2017-08-17T17:16:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-17T17:18:04.103Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
