@@ -7,7 +7,7 @@
         <title>Package Scripts · electron-webpack</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="GitBook 3.2.6">
         
         
         
@@ -49,6 +49,7 @@
         
     
     
+    
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -57,11 +58,22 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Options.html" />
+    <link rel="next" href="Options" />
     
     
-    <link rel="prev" href="languages-and-frameworks.html" />
+    <link rel="prev" href="languages-and-frameworks" />
     
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"};
+    </script>
 
     </head>
     <body>
@@ -102,9 +114,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="project-structure.html">
+        <li class="chapter " data-level="1.2" data-path="project-structure">
             
-                <a href="project-structure.html">
+                <a href="project-structure">
             
                     
                     Project Structure
@@ -115,9 +127,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="languages-and-frameworks.html">
+        <li class="chapter " data-level="1.3" data-path="languages-and-frameworks">
             
-                <a href="languages-and-frameworks.html">
+                <a href="languages-and-frameworks">
             
                     
                     Languages and Frameworks
@@ -128,9 +140,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="package-scripts.html">
+        <li class="chapter active" data-level="1.4" data-path="package-scripts">
             
-                <a href="package-scripts.html">
+                <a href="package-scripts">
             
                     
                     Package Scripts
@@ -141,9 +153,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="Options.html">
+        <li class="chapter " data-level="1.5" data-path="Options">
             
-                <a href="Options.html">
+                <a href="Options">
             
                     
                     Options
@@ -154,9 +166,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="HMR.html">
+        <li class="chapter " data-level="1.6" data-path="HMR">
             
-                <a href="HMR.html">
+                <a href="HMR">
             
                     
                     Hot Module Replacement
@@ -167,9 +179,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="configuration-files.html">
+        <li class="chapter " data-level="1.7" data-path="configuration-files">
             
-                <a href="configuration-files.html">
+                <a href="configuration-files">
             
                     
                     Configuration Files
@@ -237,7 +249,9 @@
 </code></pre>
 <ul>
 <li><code>yarn dev</code> Run app in development.</li>
-<li><code>yarn compile</code> Compile app for production. No need to call this script explicitly, only if you want to inspect your compiled app.</li>
+<li><p><code>yarn compile</code> Compile app for production. No need to call this script explicitly, only if you want to inspect your compiled app. </p>
+<p><code>NODE_ENV</code> environment variable is ignored. To disable minification, pass <code>--env.minify=false</code>. To build for development, pass <code>--env.production=false</code>.</p>
+</li>
 <li><code>yarn dist</code> Build app and package in a distributable format for production.</li>
 <li><code>yarn dist-dir</code> Build app and quickly package in a distributable format for test how does the app work if packed.</li>
 </ul>
@@ -268,12 +282,12 @@
 
             
                 
-                <a href="languages-and-frameworks.html" class="navigation navigation-prev " aria-label="Previous page: Languages and Frameworks">
+                <a href="languages-and-frameworks" class="navigation navigation-prev " aria-label="Previous page: Languages and Frameworks">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Options.html" class="navigation navigation-next " aria-label="Next page: Options">
+                <a href="Options" class="navigation navigation-next " aria-label="Next page: Options">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -284,7 +298,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Package Scripts","level":"1.4","depth":1,"next":{"title":"Options","level":"1.5","depth":1,"path":"Options.md","ref":"Options.md","articles":[]},"previous":{"title":"Languages and Frameworks","level":"1.3","depth":1,"path":"languages-and-frameworks.md","ref":"languages-and-frameworks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"package-scripts.md","mtime":"2017-08-17T09:30:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-30T15:06:16.700Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Package Scripts","level":"1.4","depth":1,"next":{"title":"Options","level":"1.5","depth":1,"path":"Options.md","ref":"Options.md","articles":[]},"previous":{"title":"Languages and Frameworks","level":"1.3","depth":1,"path":"languages-and-frameworks.md","ref":"languages-and-frameworks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"package-scripts.md","mtime":"2017-09-04T15:12:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.6","time":"2017-09-07T10:45:34.729Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
