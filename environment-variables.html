@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Project Structure · electron-webpack</title>
+        <title>Environment Variables · electron-webpack</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.6">
@@ -58,10 +58,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="building" />
+    <link rel="next" href="extending-as-a-library" />
     
     
-    <link rel="prev" href="using-static-assets" />
+    <link rel="prev" href="cli-commands" />
     
 
     <style>
@@ -180,7 +180,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="environment-variables">
+        <li class="chapter active" data-level="1.3.4" data-path="environment-variables">
             
                 <a href="environment-variables">
             
@@ -224,7 +224,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="project-structure">
+        <li class="chapter " data-level="1.4" data-path="project-structure">
             
                 <a href="project-structure">
             
@@ -325,7 +325,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Project Structure</a>
+        <a href="." >Environment Variables</a>
     </h1>
 </div>
 
@@ -340,35 +340,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="project-structure">Project Structure</h1>
-<p>Everybody likes to structure their projects differently, and <code>electron-webpack</code> is aware of that. For the most part, the only configurations needed are <a href="https://webpack.js.org/concepts/entry-points/" target="_blank">entry points</a> for <code>webpack</code> to step in.</p>
-<p>If you are looking to follow common electron practices or wanting an example template, make sure to check out <a href="https://github.com/electron-userland/electron-webpack-quick-start" target="_blank"><code>electron-webpack-quick-start</code></a>. It has the bare minimun setup, but can be easily modified to meet many needs. The use of this template, of course, is optional.</p>
-<h3 id="default-structure">Default Structure</h3>
-<p>Below is the default file tree that <code>electron-webpack</code> expects without any custom configuration. Please know that source directories can be adjusted to meet your needs (<a href="configuration#source-directories">more info</a>).</p>
-<pre><code>my-project/
-&#x251C;&#x2500; src/
-&#x2502;  &#x251C;&#x2500; main/
-&#x2502;  &#x2502;  &#x2514;&#x2500; index.js
-&#x2502;  &#x251C;&#x2500; renderer/
-&#x2502;  &#x2502;  &#x2514;&#x2500; index.js
-&#x2502;  &#x2514;&#x2500; common/
-&#x2514;&#x2500; static/
-</code></pre><h5 id="main-process-srcmain">Main Process (<code>src/main/</code>)</h5>
-<p>Here you can add all of your <code>main</code> process code.</p>
-<h5 id="renderer-process-srcrenderer-optional">Renderer Process (<code>src/renderer/</code>) [optional]</h5>
-<p>Here you can add all of your <code>renderer</code> process code. Bundling of the <code>renderer</code> process is optional for cases where you may want to use an external tool such as <a href="https://github.com/leo/electron-next" target="_blank"><code>electron-next</code></a>. Notice that there isn&apos;t a entry <code>index.html</code>, that&apos;s because it is created for you (<a href="development#use-of-html-webpack-plugin">more info</a>).</p>
-<h5 id="common-scripts-srccommon-optional">Common Scripts (<code>src/common/</code>) [optional]</h5>
-<p>This is a convenient place where you can place utility type files that you expect to use between both processes. Thanks to <code>webpack</code> aliasing, you can easily import files from here using the <code>common</code> alias.</p>
-<h5 id="static-assets-static-optional">Static Assets (<code>static/</code>) [optional]</h5>
-<p>There are some instances were we may not want <code>webpack</code> to bundle particular assets, like those being consumed by modules like <code>fs</code>. Here is where we can put them and then reliably access them in both development and production (<a href="using-static-assets">more info</a>).</p>
-<h3 id="webpack-entry-points"><code>webpack</code> entry points</h3>
-<p>One important thing to notice is that <code>electron-webpack</code> expects that your <code>main</code> process and <code>renderer</code> process source code is separated using different directories.
-Within each process&apos;s directory, one of the following entry files is expected...</p>
-<ul>
-<li><code>index.js</code> / <code>main.js</code></li>
-<li><code>index.ts</code> / <code>main.ts</code> (when using the <a href="add-ons#typescript">TypeScript</a> add-on)</li>
-</ul>
-<p>The <a href="https://webpack.js.org/concepts/entry-points/" target="_blank">entry files</a> are the main starting point of your <code>webpack</code> bundle, so everything found within its dependency tree will be bundled.</p>
+                                <h1 id="environment-variables">Environment Variables</h1>
+<p>Sometimes you need your <code>webpack</code> build to be dependent upon specific environment variables. Whether you need to set a global API Url or even the application name, here&apos;s how you can set variables that <code>electron-webpack</code> will provide for your applicaiton.</p>
+<h3 id="electronwebpackapp"><code>ELECTRON_WEBPACK_APP_*</code></h3>
+<p>If you want <code>electron-webpack</code> to provide environment variables during the build process, use the <code>ELECTRON_WEBPACK_APP_*</code> namespace and they will be injected.</p>
+<h4 id="use-case">Use Case</h4>
+<p>Let&apos;s say our application uses a CI server to run tests, and we also want that build to use our development API. We can set an environment variable to define the base Url that <a href="https://www.npmjs.com/package/axios" target="_blank"><code>axios</code></a> can use.</p>
+<h5 id="set-our-environment-variable">Set our environment variable</h5>
+<pre><code class="lang-bash"><span class="hljs-comment"># linux and darwin systems</span>
+ELECTRON_WEBPACK_APP_API_URL=<span class="hljs-string">&quot;http://dev.domain.com/api&quot;</span>
+
+<span class="hljs-comment"># win32 systems</span>
+<span class="hljs-built_in">set</span> ELECTRON_WEBPACK_APP_API_URL=<span class="hljs-string">&quot;http://dev.domain.com/api&quot;</span>
+</code></pre>
+<h5 id="reference-that-variable-in-our-code">Reference that variable in our code</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;axios&apos;</span>
+
+axios.defaults.baseURL = process.env.ELECTRON_WEBPACK_APP_API_URL
+</code></pre>
 <script src="_gitbook_plugin_analytics.js"></script>
                                 
                                 </section>
@@ -396,12 +385,12 @@ Within each process&apos;s directory, one of the following entry files is expect
 
             
                 
-                <a href="using-static-assets" class="navigation navigation-prev " aria-label="Previous page: Using Static Assets">
+                <a href="cli-commands" class="navigation navigation-prev " aria-label="Previous page: CLI Commands">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="building" class="navigation navigation-next " aria-label="Next page: Building">
+                <a href="extending-as-a-library" class="navigation navigation-next " aria-label="Next page: Extending as a Library">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -412,7 +401,7 @@ Within each process&apos;s directory, one of the following entry files is expect
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Project Structure","level":"1.4","depth":1,"next":{"title":"Building","level":"1.5","depth":1,"path":"building.md","ref":"building.md","articles":[]},"previous":{"title":"Using Static Assets","level":"1.3.6","depth":2,"path":"using-static-assets.md","ref":"using-static-assets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"project-structure.md","mtime":"2017-09-08T07:02:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.6","time":"2017-09-08T07:05:27.970Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Environment Variables","level":"1.3.4","depth":2,"next":{"title":"Extending as a Library","level":"1.3.5","depth":2,"path":"extending-as-a-library.md","ref":"extending-as-a-library.md","articles":[]},"previous":{"title":"CLI Commands","level":"1.3.3","depth":2,"path":"cli-commands.md","ref":"cli-commands.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"environment-variables.md","mtime":"2017-09-08T06:13:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.6","time":"2017-09-08T07:05:27.970Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

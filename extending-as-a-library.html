@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Project Structure · electron-webpack</title>
+        <title>Extending as a Library · electron-webpack</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.6">
@@ -58,10 +58,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="building" />
+    <link rel="next" href="using-static-assets" />
     
     
-    <link rel="prev" href="using-static-assets" />
+    <link rel="prev" href="environment-variables" />
     
 
     <style>
@@ -193,7 +193,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="extending-as-a-library">
+        <li class="chapter active" data-level="1.3.5" data-path="extending-as-a-library">
             
                 <a href="extending-as-a-library">
             
@@ -224,7 +224,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="project-structure">
+        <li class="chapter " data-level="1.4" data-path="project-structure">
             
                 <a href="project-structure">
             
@@ -325,7 +325,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Project Structure</a>
+        <a href="." >Extending as a Library</a>
     </h1>
 </div>
 
@@ -340,35 +340,56 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="project-structure">Project Structure</h1>
-<p>Everybody likes to structure their projects differently, and <code>electron-webpack</code> is aware of that. For the most part, the only configurations needed are <a href="https://webpack.js.org/concepts/entry-points/" target="_blank">entry points</a> for <code>webpack</code> to step in.</p>
-<p>If you are looking to follow common electron practices or wanting an example template, make sure to check out <a href="https://github.com/electron-userland/electron-webpack-quick-start" target="_blank"><code>electron-webpack-quick-start</code></a>. It has the bare minimun setup, but can be easily modified to meet many needs. The use of this template, of course, is optional.</p>
-<h3 id="default-structure">Default Structure</h3>
-<p>Below is the default file tree that <code>electron-webpack</code> expects without any custom configuration. Please know that source directories can be adjusted to meet your needs (<a href="configuration#source-directories">more info</a>).</p>
-<pre><code>my-project/
-&#x251C;&#x2500; src/
-&#x2502;  &#x251C;&#x2500; main/
-&#x2502;  &#x2502;  &#x2514;&#x2500; index.js
-&#x2502;  &#x251C;&#x2500; renderer/
-&#x2502;  &#x2502;  &#x2514;&#x2500; index.js
-&#x2502;  &#x2514;&#x2500; common/
-&#x2514;&#x2500; static/
-</code></pre><h5 id="main-process-srcmain">Main Process (<code>src/main/</code>)</h5>
-<p>Here you can add all of your <code>main</code> process code.</p>
-<h5 id="renderer-process-srcrenderer-optional">Renderer Process (<code>src/renderer/</code>) [optional]</h5>
-<p>Here you can add all of your <code>renderer</code> process code. Bundling of the <code>renderer</code> process is optional for cases where you may want to use an external tool such as <a href="https://github.com/leo/electron-next" target="_blank"><code>electron-next</code></a>. Notice that there isn&apos;t a entry <code>index.html</code>, that&apos;s because it is created for you (<a href="development#use-of-html-webpack-plugin">more info</a>).</p>
-<h5 id="common-scripts-srccommon-optional">Common Scripts (<code>src/common/</code>) [optional]</h5>
-<p>This is a convenient place where you can place utility type files that you expect to use between both processes. Thanks to <code>webpack</code> aliasing, you can easily import files from here using the <code>common</code> alias.</p>
-<h5 id="static-assets-static-optional">Static Assets (<code>static/</code>) [optional]</h5>
-<p>There are some instances were we may not want <code>webpack</code> to bundle particular assets, like those being consumed by modules like <code>fs</code>. Here is where we can put them and then reliably access them in both development and production (<a href="using-static-assets">more info</a>).</p>
-<h3 id="webpack-entry-points"><code>webpack</code> entry points</h3>
-<p>One important thing to notice is that <code>electron-webpack</code> expects that your <code>main</code> process and <code>renderer</code> process source code is separated using different directories.
-Within each process&apos;s directory, one of the following entry files is expected...</p>
+                                <h1 id="extending-as-a-library">Extending as a Library</h1>
+<p>One of the great benefits of using <code>electron-webpack</code> is that the entirity of <code>webpack</code>&apos;s documenation still applies. You can easily skip using the provided CLI and modify the configurations to meet your needs. Since <code>electron</code> uses a multi-process architecture, there are also multiple <code>webpack</code> configurations. Let&apos;s cover what&apos;s provided.</p>
+<h3 id="configuration-files">Configuration Files</h3>
 <ul>
-<li><code>index.js</code> / <code>main.js</code></li>
-<li><code>index.ts</code> / <code>main.ts</code> (when using the <a href="add-ons#typescript">TypeScript</a> add-on)</li>
+<li><code>electron-webpack/webpack.main.config.js</code> (<code>main</code> process)</li>
+<li><code>electron-webpack/webpack.renderer.config.js</code> (<code>renderer</code> process)</li>
+<li><code>electron-webpack/webpack.renderer.dll.config.js</code> (Dll bundle spliting)</li>
+<li><code>electron-webpack/webpack.app.config.js</code> (combination of all configurations above)</li>
 </ul>
-<p>The <a href="https://webpack.js.org/concepts/entry-points/" target="_blank">entry files</a> are the main starting point of your <code>webpack</code> bundle, so everything found within its dependency tree will be bundled.</p>
+<p>If you are wanting to look at these configurations internally, you can easily do the following to print them into your console. Notice that each configuration returns a <code>Promise</code>.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> webpackMain = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;electron-webpack/webpack.main.config.js&apos;</span>)
+<span class="hljs-keyword">const</span> { inspect } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;util&apos;</span>)
+
+webpackMain().then(config =&gt; {
+  <span class="hljs-built_in">console</span>.log(inspect(config, {
+    showHidden: <span class="hljs-literal">false</span>,
+    depth: <span class="hljs-literal">null</span>,
+    colors: <span class="hljs-literal">true</span>
+  }))
+})
+</code></pre>
+<h2 id="adding-a-custom-loaderplugin">Adding a Custom Loader/Plugin</h2>
+<p>Let&apos;s say we need to support <code>*.txt</code> files in our <code>renderer</code> process and want to use the <code>raw-loader</code> to do so, here&apos;s how we can get that setup.</p>
+<h5 id="install-raw-loader">Install <code>raw-loader</code></h5>
+<pre><code class="lang-bash">yarn add -D raw-loader
+</code></pre>
+<h5 id="mycustomwebpackmainconfigjs">myCustomWebpack.main.config.js</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> webpackRenderer = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;electron-webpack/webpack.renderer.config.js&apos;</span>)
+
+<span class="hljs-built_in">module</span>.exports = env =&gt; {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
+
+    <span class="hljs-comment">/* get provided config */</span>
+    webpackRenderer(env).then(mainConfig =&gt; {
+
+      <span class="hljs-comment">/* add `raw-loader` */</span>
+      mainConfig.module.rules.push({
+        test: <span class="hljs-regexp">/\.txt$/</span>,
+        use: <span class="hljs-string">&apos;raw-loader&apos;</span>
+      })
+
+      <span class="hljs-comment">/* return modified config to webpack */</span>
+      resolve(mainConfig)
+    })
+  })
+}
+</code></pre>
+<p>Now with your new custom webpack configuration file, you can use the native <a href="https://webpack.js.org/api/cli/" target="_blank"><code>webpack</code> CLI</a>.</p>
+<pre><code class="lang-bash">webpack --config myCustomWebpack.main.config.js
+</code></pre>
 <script src="_gitbook_plugin_analytics.js"></script>
                                 
                                 </section>
@@ -396,12 +417,12 @@ Within each process&apos;s directory, one of the following entry files is expect
 
             
                 
-                <a href="using-static-assets" class="navigation navigation-prev " aria-label="Previous page: Using Static Assets">
+                <a href="environment-variables" class="navigation navigation-prev " aria-label="Previous page: Environment Variables">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="building" class="navigation navigation-next " aria-label="Next page: Building">
+                <a href="using-static-assets" class="navigation navigation-next " aria-label="Next page: Using Static Assets">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -412,7 +433,7 @@ Within each process&apos;s directory, one of the following entry files is expect
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Project Structure","level":"1.4","depth":1,"next":{"title":"Building","level":"1.5","depth":1,"path":"building.md","ref":"building.md","articles":[]},"previous":{"title":"Using Static Assets","level":"1.3.6","depth":2,"path":"using-static-assets.md","ref":"using-static-assets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"project-structure.md","mtime":"2017-09-08T07:02:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.6","time":"2017-09-08T07:05:27.970Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Extending as a Library","level":"1.3.5","depth":2,"next":{"title":"Using Static Assets","level":"1.3.6","depth":2,"path":"using-static-assets.md","ref":"using-static-assets.md","articles":[]},"previous":{"title":"Environment Variables","level":"1.3.4","depth":2,"path":"environment-variables.md","ref":"environment-variables.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"extending-as-a-library.md","mtime":"2017-09-08T07:00:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.6","time":"2017-09-08T07:05:27.970Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

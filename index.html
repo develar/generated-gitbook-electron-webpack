@@ -58,7 +58,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="project-structure" />
+    <link rel="next" href="core-concepts" />
     
     
 
@@ -112,7 +112,117 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="project-structure">
+        <li class="chapter " data-level="1.2" data-path="core-concepts">
+            
+                <a href="core-concepts">
+            
+                    
+                    Core Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="development">
+            
+                <a href="development">
+            
+                    
+                    Development
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="add-ons">
+            
+                <a href="add-ons">
+            
+                    
+                    Add-ons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="configuration">
+            
+                <a href="configuration">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="cli-commands">
+            
+                <a href="cli-commands">
+            
+                    
+                    CLI Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="environment-variables">
+            
+                <a href="environment-variables">
+            
+                    
+                    Environment Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="extending-as-a-library">
+            
+                <a href="extending-as-a-library">
+            
+                    
+                    Extending as a Library
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="using-static-assets">
+            
+                <a href="using-static-assets">
+            
+                    
+                    Using Static Assets
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="project-structure">
             
                 <a href="project-structure">
             
@@ -125,12 +235,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="languages-and-frameworks">
+        <li class="chapter " data-level="1.5" data-path="building">
             
-                <a href="languages-and-frameworks">
+                <a href="building">
             
                     
-                    Languages and Frameworks
+                    Building
             
                 </a>
             
@@ -138,12 +248,26 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="package-scripts">
+        <li class="chapter " data-level="1.6" >
             
-                <a href="package-scripts">
+                <span>
             
                     
-                    Package Scripts
+                    Miscellaneous
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="dependency-management">
+            
+                <a href="dependency-management">
+            
+                    
+                    Dependency Management
             
                 </a>
             
@@ -151,12 +275,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="Options">
+        <li class="chapter " data-level="1.6.2" data-path="technical-differences-of-electron-compile">
             
-                <a href="Options">
+                <a href="technical-differences-of-electron-compile">
             
                     
-                    Options
+                    Technical Differences of electron-compile
             
                 </a>
             
@@ -164,29 +288,8 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="HMR">
-            
-                <a href="HMR">
-            
-                    
-                    Hot Module Replacement
-            
-                </a>
-            
 
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7" data-path="configuration-files">
-            
-                <a href="configuration-files">
-            
-                    
-                    Configuration Files
-            
-                </a>
-            
-
+            </ul>
             
         </li>
     
@@ -236,37 +339,40 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="electron-webpack-">electron-webpack <a href="https://npmjs.org/package/electron-webpack" target="_blank"><img src="https://img.shields.io/npm/v/electron-webpack.svg" alt="npm version"></a></h1>
-<p>Configurations and scripts to compile Electron applications.</p>
-<h2 id="install">Install</h2>
-<ol>
-<li><code>yarn add webpack electron-webpack --dev</code></li>
-<li><code>yarn add source-map-support</code></li>
-<li>Install support for various <a href="languages-and-frameworks">languages and frameworks</a> &#x2014;
-<a href="languages-and-frameworks#typescript">TypeScript</a>,
-<a href="languages-and-frameworks#vuejs">Vue.js</a> and
-<a href="languages-and-frameworks#less">Less</a> if need.</li>
-</ol>
-<p>Please use <a href="http://yarnpkg.com/" target="_blank">Yarn</a>, npm is strongly not recommended.</p>
-<p>Real project example &#x2014; <a href="https://github.com/electron-userland/electrify" target="_blank">electrify</a>.</p>
-<h2 id="hot-module-replacement">Hot Module Replacement</h2>
-<p><a href="HMR">Fast development</a> without reloading is supported for both main and renderer processes.</p>
-<h2 id="differences-between-electron-compile">Differences between electron-compile</h2>
+<blockquote>
+<p>Because setting up <code>webpack</code> in the <code>electron</code> environment shouldn&apos;t be difficult.</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>Modern web development practices today require a lot of setup with things like <code>webpack</code> to bundle your code, <code>babel</code> for transpiling, <code>eslint</code> for linting, and so much more that the list just goes on. Unfortunaly when creating <code>electron</code> applications, all of that setup just became much more difficult. The primary aim of <code>electron-webpack</code> is to eliminate all preliminary setup with one simple install so you can get back to developing your application.</p>
+<blockquote>
+<p>Why create a module and not a full boilerplate?</p>
+</blockquote>
+<p>If you&apos;ve been in the JavaScript world for even a short period of time, you are very aware that things are always changing, and development setup is no exclusion. Putting all development scripts into a single <strong>updatable</strong> module just makes sense. Sure a full featured boilerplate works too, but doing also involves needing to manually update those pesky <code>webpack</code> configuration files that some may call <em>magic</em> when something new comes out.</p>
+<p>Here are some of the awesome features you&apos;ll find using <code>electron-webpack</code>...</p>
 <ul>
-<li><a href="https://webpack.js.org/concepts/hot-module-replacement/" target="_blank">Hot Module Replacement</a> for virtually anything and even for main process. electron-compile <a href="https://github.com/electron/electron-compile#live-reload--hot-module-reloading" target="_blank">live reload</a> is limited and works only for some file types.</li>
-<li>Faster Builds (e.g. <a href="https://github.com/TypeStrong/ts-loader#faster-builds" target="_blank">typescript</a> or <a href="https://github.com/amireh/happypack" target="_blank">generic</a>).</li>
-<li>No runtime dependencies.</li>
-<li>... and so on. electron-compile is not comparable to <a href="https://webpack.js.org" target="_blank">webpack</a> because webpack is widely used and popular. There are a lot features, loaders and plugins. And because community is big, answers to any question. Special tool for Electron not required, <a href="https://webpack.js.org/configuration/target/#string" target="_blank">electron</a> is directly and explicitly supported by webpack.</li>
+<li>Detailed <a href="https://webpack.electron.build" target="_blank">documentation</a></li>
+<li>Use of <a href="https://webpack.js.org/" target="_blank"><code>webpack</code></a> for source code bundling</li>
+<li>Use of <a href="https://github.com/webpack/webpack-dev-server" target="_blank"><code>webpack-dev-server</code></a> for development</li>
+<li>HMR for both <code>renderer</code> and <code>main</code> processes</li>
+<li>Use of <a href="https://github.com/babel/babel-preset-env" target="_blank"><code>babel-preset-env</code></a> that is automatically configured based on your <code>electron</code> version</li>
+<li><a href="add-ons">Add-ons</a> to support items like <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a>, <a href="http://lesscss.org/" target="_blank">Less</a>, <a href="http://www.embeddedjs.com/" target="_blank">EJS</a>, etc.</li>
 </ul>
-<p>But keep things simple. electron-compile offers you zero-config setup without predefined project structure and simple on the fly runtime transformation. And for simple projects, even direct usage of <code>typescript</code>/<code>babel</code> maybe enough (<a href="https://github.com/develar/onshape-desktop-shell" target="_blank">example</a>).</p>
-<h2 id="notes">Notes</h2>
-<ul>
-<li><a href="https://github.com/evanw/node-source-map-support" target="_blank">source-map-support</a> is recommended and supported out of the box, simply install it <code>yarn add source-map-support</code> and that&apos;s all.</li>
-<li><a href="https://github.com/RoccoC/webpack-build-notifier" target="_blank">webpack-build-notifier</a> is supported, simply install it <code>yarn add webpack-build-notifier --dev</code> and it will automatically enabled for development.</li>
-</ul>
-<h2 id="debug">Debug</h2>
-<p>Set the <a href="https://github.com/visionmedia/debug#windows-note" target="_blank">DEBUG</a> environment variable to debug what electron-webpack is doing:</p>
-<pre><code class="lang-bash">DEBUG=electron-webpack*
+<h2 id="quick-start">Quick Start</h2>
+<p>Get started fast with <a href="repoLink">electron-webpack-quick-start</a>.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># copy template using curl</span>
+curl -fsSL https://github.com/electron-userland/electron-webpack-quick-start/archive/master.tar.gz | tar -xz --strip-components 1
+
+<span class="hljs-comment"># or copy template using git clone</span>
+git <span class="hljs-built_in">clone</span> https://github.com/electron-userland/electron-webpack-quick-start.git
+<span class="hljs-built_in">cd</span> electron-webpack-quick-start
+rm -rf .git
+
+<span class="hljs-comment"># install dependencies</span>
+yarn
 </code></pre>
+<p>If you are already have an existing project, or are looking for a custom approach outside of the quick start template, make sure to read over the <a href="core-concepts">Core Concepts</a>, <a href="project-structure">Project Structure</a>, and <a href="development">Development</a> sections of <code>electron-webpack</code>&apos;s documentaiton.</p>
+<h3 id="next-steps">Next Steps</h3>
+<p>Make sure to take advantage of the detailed <a href="https://webpack.electron.build" target="_blank">documentation</a> that <code>electron-webpack</code> provides. It covers everything from how things work internally, adding custom configurations, and building your application.</p>
 <script src="_gitbook_plugin_analytics.js"></script>
                                 
                                 </section>
@@ -295,7 +401,7 @@
             
                 
                 
-                <a href="project-structure" class="navigation navigation-next navigation-unique" aria-label="Next page: Project Structure">
+                <a href="core-concepts" class="navigation navigation-next navigation-unique" aria-label="Next page: Core Concepts">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -306,7 +412,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Project Structure","level":"1.2","depth":1,"path":"project-structure.md","ref":"project-structure.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"README.md","mtime":"2017-08-22T05:23:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.6","time":"2017-09-07T10:45:34.729Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Core Concepts","level":"1.2","depth":1,"path":"core-concepts.md","ref":"core-concepts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"README.md","mtime":"2017-09-08T00:07:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.6","time":"2017-09-08T07:05:27.970Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
