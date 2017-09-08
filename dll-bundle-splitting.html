@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · electron-webpack</title>
+        <title>Dll Bundle Splitting · electron-webpack</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.6">
@@ -58,8 +58,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="core-concepts" />
+    <link rel="next" href="environment-variables" />
     
+    
+    <link rel="prev" href="cli-commands" />
     
 
     <style>
@@ -99,7 +101,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -178,7 +180,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="dll-bundle-splitting">
+        <li class="chapter active" data-level="1.3.4" data-path="dll-bundle-splitting">
             
                 <a href="dll-bundle-splitting">
             
@@ -336,7 +338,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Dll Bundle Splitting</a>
     </h1>
 </div>
 
@@ -351,41 +353,46 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="electron-webpack-">electron-webpack <a href="https://npmjs.org/package/electron-webpack" target="_blank"><img src="https://img.shields.io/npm/v/electron-webpack.svg" alt="npm version"></a></h1>
-<blockquote>
-<p>Because setting up <code>webpack</code> in the <code>electron</code> environment shouldn&apos;t be difficult.</p>
-</blockquote>
-<h2 id="overview">Overview</h2>
-<p>Modern web development practices today require a lot of setup with things like <code>webpack</code> to bundle your code, <code>babel</code> for transpiling, <code>eslint</code> for linting, and so much more that the list just goes on. Unfortunaly when creating <code>electron</code> applications, all of that setup just became much more difficult. The primary aim of <code>electron-webpack</code> is to eliminate all preliminary setup with one simple install so you can get back to developing your application.</p>
-<blockquote>
-<p>Why create a module and not a full boilerplate?</p>
-</blockquote>
-<p>If you&apos;ve been in the JavaScript world for even a short period of time, you are very aware that things are always changing, and development setup is no exclusion. Putting all development scripts into a single <strong>updatable</strong> module just makes sense. Sure a full featured boilerplate works too, but doing also involves needing to manually update those pesky <code>webpack</code> configuration files that some may call <em>magic</em> when something new comes out.</p>
-<p>Here are some of the awesome features you&apos;ll find using <code>electron-webpack</code>...</p>
-<ul>
-<li>Detailed <a href="https://webpack.electron.build" target="_blank">documentation</a></li>
-<li>Use of <a href="https://webpack.js.org/" target="_blank"><code>webpack</code></a> for source code bundling</li>
-<li>Use of <a href="https://github.com/webpack/webpack-dev-server" target="_blank"><code>webpack-dev-server</code></a> for development</li>
-<li>HMR for both <code>renderer</code> and <code>main</code> processes</li>
-<li>Use of <a href="https://github.com/babel/babel-preset-env" target="_blank"><code>babel-preset-env</code></a> that is automatically configured based on your <code>electron</code> version</li>
-<li><a href="add-ons">Add-ons</a> to support items like <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a>, <a href="http://lesscss.org/" target="_blank">Less</a>, <a href="http://www.embeddedjs.com/" target="_blank">EJS</a>, etc.</li>
-</ul>
-<h2 id="quick-start">Quick Start</h2>
-<p>Get started fast with <a href="https://github.com/electron-userland/electron-webpack-quick-start" target="_blank">electron-webpack-quick-start</a>.</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># copy template using curl</span>
-curl -fsSL https://github.com/electron-userland/electron-webpack-quick-start/archive/master.tar.gz | tar -xz --strip-components 1
-
-<span class="hljs-comment"># or copy template using git clone</span>
-git <span class="hljs-built_in">clone</span> https://github.com/electron-userland/electron-webpack-quick-start.git
-<span class="hljs-built_in">cd</span> electron-webpack-quick-start
-rm -rf .git
-
-<span class="hljs-comment"># install dependencies</span>
-yarn
+                                <h1 id="dll-bundle-splitting">Dll Bundle Splitting</h1>
+<p>One great feature of using <code>webpack</code> is being able to take advantage of the <code>webpack.DllPlugin</code> plugin. If you are unfamiliar with the <code>webpack.DllPlugin</code> plugin, make sure to read its <a href="https://webpack.js.org/plugins/dll-plugin/" target="_blank">documenation</a> to better understand what problem it attempts to solve. In short, this can be used to <a href="https://robertknight.github.io/posts/webpack-dll-plugins/" target="_blank">drastically improve</a> build time performance.</p>
+<p>Through custom configurations <code>electron-webpack</code> provides a place to define specific packages you would like to create a separate bundle for. You can treat this feature as a way to bundle all of your <em>vendor</em> libraries together.</p>
+<p>Once you have defined your modules, you can simply run <code>electron-webpack dll</code> to produce a <code>vendor</code> bundle that will be referenced in your final compilation. Let&apos;s go through that step-by-step.</p>
+<h3 id="define-your-modules">Define your modules</h3>
+<p>Here we are defining our modules in <code>package.json</code>. If you prefer, you can also create a separate file for your configurations (<a href="configuration">more info</a>).</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;electronWebpack&quot;</span>: {
+    <span class="hljs-string">&quot;renderer&quot;</span>: {
+      <span class="hljs-string">&quot;dll&quot;</span>: [
+        <span class="hljs-string">&quot;fooModule&quot;</span>,
+        <span class="hljs-string">&quot;barModule&quot;</span>
+      ]
+    }
+  }
+}
 </code></pre>
-<p>If you already have an existing project, or are looking for a custom approach outside of the quick start template, make sure to read over the <a href="core-concepts">Core Concepts</a>, <a href="project-structure">Project Structure</a>, and <a href="development">Development</a> sections of <code>electron-webpack</code>&apos;s documentaiton.</p>
-<h3 id="next-steps">Next Steps</h3>
-<p>Make sure to take advantage of the detailed <a href="https://webpack.electron.build" target="_blank">documentation</a> that <code>electron-webpack</code> provides. It covers everything from how things work internally, adding custom configurations, and building your application.</p>
+<h3 id="create-the-vendor-bundle">Create the <code>vendor</code> bundle</h3>
+<p>Once you have choosen your selected modules, you can run the below command to create your <code>vendor</code> bundle.</p>
+<pre><code class="lang-bash">electron-webpack dll
+</code></pre>
+<p>It may be beneficial to create a <code>package.json</code> script for this command if you plan to use it often.</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;scripts&quot;</span>: {
+    <span class="hljs-string">&quot;compile:dll&quot;</span>: <span class="hljs-string">&quot;electron-webpack dll&quot;</span>
+  }
+}
+</code></pre>
+<h2 id="final-notes">Final Notes</h2>
+<p>Now that your <code>vendor</code> bundle is created, you can move forward with the standard <code>electron-webpack</code> compilation process.</p>
+<p>Please know that the <code>vendor</code> bundle is only created when you explicity run <code>electron-webpack dll</code>. For most cases, you may only need to run this one time. But as you add/remove modules or even update those modules, you will need to re-run the command to create an updated bundle.</p>
+<h4 id="using-a-postinstall-hook">Using a <code>postinstall</code> hook</h4>
+<p>One common practice when using Dll bundle splitting to define a <code>postinstall</code> command to create the <code>vendor</code> bundle whenever new dependecies are installed. This can help ensure everything is up to date so you don&apos;t have to manually run this yourself.</p>
+<h5 id="packagejson">package.json</h5>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;scripts&quot;</span>: {
+    <span class="hljs-string">&quot;postinstall&quot;</span>: <span class="hljs-string">&quot;electron-webpack dll&quot;</span>
+  }
+}
+</code></pre>
 <script src="_gitbook_plugin_analytics.js"></script>
                                 
                                 </section>
@@ -413,8 +420,12 @@ yarn
 
             
                 
+                <a href="cli-commands" class="navigation navigation-prev " aria-label="Previous page: CLI Commands">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="core-concepts" class="navigation navigation-next navigation-unique" aria-label="Next page: Core Concepts">
+                
+                <a href="environment-variables" class="navigation navigation-next " aria-label="Next page: Environment Variables">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -425,7 +436,7 @@ yarn
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Core Concepts","level":"1.2","depth":1,"path":"core-concepts.md","ref":"core-concepts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"README.md","mtime":"2017-09-08T20:18:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.6","time":"2017-09-08T22:35:13.539Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Dll Bundle Splitting","level":"1.3.4","depth":2,"next":{"title":"Environment Variables","level":"1.3.5","depth":2,"path":"environment-variables.md","ref":"environment-variables.md","articles":[]},"previous":{"title":"CLI Commands","level":"1.3.3","depth":2,"path":"cli-commands.md","ref":"cli-commands.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"dll-bundle-splitting.md","mtime":"2017-09-08T22:33:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.6","time":"2017-09-08T22:35:13.539Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

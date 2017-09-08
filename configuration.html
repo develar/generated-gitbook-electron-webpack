@@ -180,7 +180,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="environment-variables">
+        <li class="chapter " data-level="1.3.4" data-path="dll-bundle-splitting">
+            
+                <a href="dll-bundle-splitting">
+            
+                    
+                    Dll Bundle Splitting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="environment-variables">
             
                 <a href="environment-variables">
             
@@ -193,7 +206,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="extending-as-a-library">
+        <li class="chapter " data-level="1.3.6" data-path="extending-as-a-library">
             
                 <a href="extending-as-a-library">
             
@@ -206,7 +219,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="using-static-assets">
+        <li class="chapter " data-level="1.3.7" data-path="using-static-assets">
             
                 <a href="using-static-assets">
             
@@ -397,7 +410,7 @@
 </code></pre>
 <p>Note that you can use the <code>@</code> alias to reference your <code>main.sourceDirectory</code>.</p>
 <h3 id="dll-bundle-splitting">Dll bundle splitting</h3>
-<p>If you are unfamiliar with the <code>webpack.DllPlugin</code> plugin, make sure to read its <a href="https://webpack.js.org/plugins/dll-plugin/" target="_blank">documenation</a> to better understand what problem it attempts to solve. In short, this can be used to <a href="https://robertknight.github.io/posts/webpack-dll-plugins/" target="_blank">drastically improve</a> build time performance.</p>
+<p>See <a href="dll-bundle-splitting">Dll Bundle Splitting</a> for more info.</p>
 <pre><code class="lang-json"><span class="hljs-string">&quot;electronWebpack&quot;</span>: {
   <span class="hljs-string">&quot;renderer&quot;</span>: {
     <span class="hljs-string">&quot;dll&quot;</span>: [<span class="hljs-string">&quot;fooModule&quot;</span>]
@@ -453,7 +466,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Configuration","level":"1.3.2","depth":2,"next":{"title":"CLI Commands","level":"1.3.3","depth":2,"path":"cli-commands.md","ref":"cli-commands.md","articles":[]},"previous":{"title":"Add-ons","level":"1.3.1","depth":2,"path":"add-ons.md","ref":"add-ons.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"configuration.md","mtime":"2017-09-07T20:27:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.6","time":"2017-09-08T07:05:27.970Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Configuration","level":"1.3.2","depth":2,"next":{"title":"CLI Commands","level":"1.3.3","depth":2,"path":"cli-commands.md","ref":"cli-commands.md","articles":[]},"previous":{"title":"Add-ons","level":"1.3.1","depth":2,"path":"add-ons.md","ref":"add-ons.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"configuration.md","mtime":"2017-09-08T22:32:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.6","time":"2017-09-08T22:35:13.539Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
