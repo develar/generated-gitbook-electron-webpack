@@ -1,0 +1,491 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · electron-webpack</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.6">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="core-concepts" />
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="core-concepts">
+            
+                <a href="core-concepts">
+            
+                    
+                    Core Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="development">
+            
+                <a href="development">
+            
+                    
+                    Development
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="add-ons">
+            
+                <a href="add-ons">
+            
+                    
+                    Add-ons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="configuration">
+            
+                <a href="configuration">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="cli-commands">
+            
+                <a href="cli-commands">
+            
+                    
+                    CLI Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="dll-bundle-splitting">
+            
+                <a href="dll-bundle-splitting">
+            
+                    
+                    Dll Bundle Splitting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="environment-variables">
+            
+                <a href="environment-variables">
+            
+                    
+                    Environment Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="extending-as-a-library">
+            
+                <a href="extending-as-a-library">
+            
+                    
+                    Extending as a Library
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="modifying-webpack-configurations">
+            
+                <a href="modifying-webpack-configurations">
+            
+                    
+                    Modifying Webpack Configurations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="using-static-assets">
+            
+                <a href="using-static-assets">
+            
+                    
+                    Using Static Assets
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="project-structure">
+            
+                <a href="project-structure">
+            
+                    
+                    Project Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="building">
+            
+                <a href="building">
+            
+                    
+                    Building
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Miscellaneous
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="dependency-management">
+            
+                <a href="dependency-management">
+            
+                    
+                    Dependency Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="technical-differences-of-electron-compile">
+            
+                <a href="technical-differences-of-electron-compile">
+            
+                    
+                    Technical Differences of electron-compile
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="electron-webpack-">electron-webpack <a href="https://npmjs.org/package/electron-webpack" target="_blank"><img src="https://img.shields.io/npm/v/electron-webpack.svg" alt="npm version"></a></h1>
+<blockquote>
+<p>Because setting up <code>webpack</code> in the <code>electron</code> environment shouldn&apos;t be difficult.</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>Modern web development practices today require a lot of setup with things like <code>webpack</code> to bundle your code, <code>babel</code> for transpiling, <code>eslint</code> for linting, and so much more that the list just goes on. Unfortunaly when creating <code>electron</code> applications, all of that setup just became much more difficult. The primary aim of <code>electron-webpack</code> is to eliminate all preliminary setup with one simple install so you can get back to developing your application.</p>
+<blockquote>
+<p>Why create a module and not a full boilerplate?</p>
+</blockquote>
+<p>If you&apos;ve been in the JavaScript world for even a short period of time, you are very aware that things are always changing, and development setup is no exclusion. Putting all development scripts into a single <strong>updatable</strong> module just makes sense. Sure a full featured boilerplate works too, but doing also involves needing to manually update those pesky <code>webpack</code> configuration files that some may call <em>magic</em> when something new comes out.</p>
+<p>Here are some of the awesome features you&apos;ll find using <code>electron-webpack</code>...</p>
+<ul>
+<li>Detailed <a href="https://webpack.electron.build" target="_blank">documentation</a></li>
+<li>Use of <a href="https://webpack.js.org/" target="_blank"><code>webpack</code></a> for source code bundling</li>
+<li>Use of <a href="https://github.com/webpack/webpack-dev-server" target="_blank"><code>webpack-dev-server</code></a> for development</li>
+<li>HMR for both <code>renderer</code> and <code>main</code> processes</li>
+<li>Use of <a href="https://github.com/babel/babel-preset-env" target="_blank"><code>babel-preset-env</code></a> that is automatically configured based on your <code>electron</code> version</li>
+<li>Ability to add custom <code>webpack</code> loaders, plugins, etc.</li>
+<li><a href="add-ons">Add-ons</a> to support items like <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a>, <a href="http://lesscss.org/" target="_blank">Less</a>, <a href="http://www.embeddedjs.com/" target="_blank">EJS</a>, etc.</li>
+</ul>
+<h2 id="quick-start">Quick Start</h2>
+<p>Get started fast with <a href="https://github.com/electron-userland/electron-webpack-quick-start" target="_blank">electron-webpack-quick-start</a>.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># create a directory of your choice, and copy template using curl</span>
+mkdir my-project &amp;&amp; <span class="hljs-built_in">cd</span> my-project
+curl -fsSL https://github.com/electron-userland/electron-webpack-quick-start/archive/master.tar.gz | tar -xz --strip-components 1
+
+<span class="hljs-comment"># or copy template using git clone</span>
+git <span class="hljs-built_in">clone</span> https://github.com/electron-userland/electron-webpack-quick-start.git
+<span class="hljs-built_in">cd</span> electron-webpack-quick-start
+rm -rf .git
+
+<span class="hljs-comment"># install dependencies</span>
+yarn
+</code></pre>
+<p>If you already have an existing project, or are looking for a custom approach outside of the quick start template, make sure to read over the <a href="core-concepts">Core Concepts</a>, <a href="project-structure">Project Structure</a>, and <a href="development">Development</a> sections of <code>electron-webpack</code>&apos;s documentaiton.</p>
+<h3 id="next-steps">Next Steps</h3>
+<p>Make sure to take advantage of the detailed <a href="https://webpack.electron.build" target="_blank">documentation</a> that <code>electron-webpack</code> provides. It covers everything from how things work internally, adding custom configurations, and building your application.</p>
+<script src="_gitbook_plugin_analytics.js"></script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="core-concepts" class="navigation navigation-next navigation-unique" aria-label="Next page: Core Concepts">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Core Concepts","level":"1.2","depth":1,"path":"core-concepts.md","ref":"core-concepts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"README.md","mtime":"2017-10-16T07:18:05.971Z","type":"markdown"},"gitbook":{"version":"3.2.6","time":"2017-10-16T08:42:19.295Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
