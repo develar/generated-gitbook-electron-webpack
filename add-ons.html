@@ -7,7 +7,7 @@
         <title>Add-ons · electron-webpack</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.9">
+        <meta name="generator" content="GitBook 3.2.11">
         
         
         
@@ -368,7 +368,7 @@
                                 
                                 <h1 id="add-ons">Add-ons</h1>
 <p>Although <code>electron-webpack</code> is provided as a single module, you can also install add-ons. Add-ons are made available to help setup certain frameworks that may require a lot of extra configuration or dependencies, such as TypeScript or Vue.js.</p>
-<p>These add-ons are completely optional and may not support all use cases. If you need something more custom, please know that the entirety of <code>webpack</code>&apos;s documenation still applies to <code>electron-webpack</code> (<a href="extending-as-a-library">more info</a>).</p>
+<p>These add-ons are completely optional and may not support all use cases. If you need something more custom, please know that the entirety of <code>webpack</code>&apos;s documentation still applies to <code>electron-webpack</code> (<a href="extending-as-a-library">more info</a>).</p>
 <p><strong>Current Add-ons</strong></p>
 <ul>
 <li><a href="#javascript-frameworks">JavaScript Frameworks</a><ul>
@@ -432,12 +432,21 @@
 </code></pre>
 <h3 id="react-jsx">React JSX</h3>
 <p>Add support for compiling JSX files.</p>
-<pre><code class="lang-bash">yarn add babel-preset-react --dev
+<pre><code class="lang-bash">yarn add @babel/preset-react --dev
+</code></pre>
+<h3 id="adding-typescript-support-for-jsx-tsx-files">Adding TypeScript support for JSX (<code>.tsx</code> files)</h3>
+<p>Install the <a href="#typescript">TypeScript</a> add-on, followed by extending your <code>tsconfig.json</code> to include the jsx compiler option as below:</p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;extends&quot;</span>: <span class="hljs-string">&quot;./node_modules/electron-webpack/tsconfig-base.json&quot;</span>,
+    <span class="hljs-string">&quot;compilerOptions&quot;</span>: {
+        <span class="hljs-string">&quot;jsx&quot;</span>: <span class="hljs-string">&quot;react&quot;</span>
+    }
+}
 </code></pre>
 <hr>
 <h2 id="pre-processors">Pre-processors</h2>
 <h3 id="babel">Babel</h3>
-<p><a href="https://github.com/babel/babel-preset-env" target="_blank">babel-preset-env</a> is automatically configured based on your <code>electron</code> version.</p>
+<p><a href="https://github.com/babel/babel/tree/master/packages/babel-preset-env" target="_blank">@babel/preset-env</a> is automatically configured based on your <code>electron</code> version.</p>
 <p>All direct dev dependencies <code>babel-preset-*</code> and <code>babel-plugin-*</code> are automatically configured also.</p>
 <h3 id="eslint">ESLint</h3>
 <p>Add support for script file linting using <code>eslint</code>. Internally uses <code>eslint</code>, <code>eslint-loader</code>, <code>eslint-friendly-formatter</code>, and makes <code>babel-eslint</code> available if needed.</p>
@@ -548,7 +557,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Add-ons","level":"1.3.1","depth":2,"next":{"title":"Configuration","level":"1.3.2","depth":2,"path":"configuration.md","ref":"configuration.md","articles":[]},"previous":{"title":"Development","level":"1.3","depth":1,"path":"development.md","ref":"development.md","articles":[{"title":"Add-ons","level":"1.3.1","depth":2,"path":"add-ons.md","ref":"add-ons.md","articles":[]},{"title":"Configuration","level":"1.3.2","depth":2,"path":"configuration.md","ref":"configuration.md","articles":[]},{"title":"CLI Commands","level":"1.3.3","depth":2,"path":"cli-commands.md","ref":"cli-commands.md","articles":[]},{"title":"Dll Bundle Splitting","level":"1.3.4","depth":2,"path":"dll-bundle-splitting.md","ref":"dll-bundle-splitting.md","articles":[]},{"title":"Environment Variables","level":"1.3.5","depth":2,"path":"environment-variables.md","ref":"environment-variables.md","articles":[]},{"title":"Extending as a Library","level":"1.3.6","depth":2,"path":"extending-as-a-library.md","ref":"extending-as-a-library.md","articles":[]},{"title":"Modifying Webpack Configurations","level":"1.3.7","depth":2,"path":"modifying-webpack-configurations.md","ref":"modifying-webpack-configurations.md","articles":[]},{"title":"Using Static Assets","level":"1.3.8","depth":2,"path":"using-static-assets.md","ref":"using-static-assets.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"add-ons.md","mtime":"2017-10-27T07:42:02.294Z","type":"markdown"},"gitbook":{"version":"3.2.9","time":"2017-10-30T16:41:01.773Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Add-ons","level":"1.3.1","depth":2,"next":{"title":"Configuration","level":"1.3.2","depth":2,"path":"configuration.md","ref":"configuration.md","articles":[]},"previous":{"title":"Development","level":"1.3","depth":1,"path":"development.md","ref":"development.md","articles":[{"title":"Add-ons","level":"1.3.1","depth":2,"path":"add-ons.md","ref":"add-ons.md","articles":[]},{"title":"Configuration","level":"1.3.2","depth":2,"path":"configuration.md","ref":"configuration.md","articles":[]},{"title":"CLI Commands","level":"1.3.3","depth":2,"path":"cli-commands.md","ref":"cli-commands.md","articles":[]},{"title":"Dll Bundle Splitting","level":"1.3.4","depth":2,"path":"dll-bundle-splitting.md","ref":"dll-bundle-splitting.md","articles":[]},{"title":"Environment Variables","level":"1.3.5","depth":2,"path":"environment-variables.md","ref":"environment-variables.md","articles":[]},{"title":"Extending as a Library","level":"1.3.6","depth":2,"path":"extending-as-a-library.md","ref":"extending-as-a-library.md","articles":[]},{"title":"Modifying Webpack Configurations","level":"1.3.7","depth":2,"path":"modifying-webpack-configurations.md","ref":"modifying-webpack-configurations.md","articles":[]},{"title":"Using Static Assets","level":"1.3.8","depth":2,"path":"using-static-assets.md","ref":"using-static-assets.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"add-ons.md","mtime":"2018-05-16T07:01:01.545Z","type":"markdown"},"gitbook":{"version":"3.2.11","time":"2018-05-16T07:05:03.652Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

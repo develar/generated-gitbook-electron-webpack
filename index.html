@@ -7,7 +7,7 @@
         <title>Introduction · electron-webpack</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.9">
+        <meta name="generator" content="GitBook 3.2.11">
         
         
         
@@ -369,7 +369,7 @@
 <p>Because setting up <code>webpack</code> in the <code>electron</code> environment shouldn&apos;t be difficult.</p>
 </blockquote>
 <h2 id="overview">Overview</h2>
-<p>Modern web development practices today require a lot of setup with things like <code>webpack</code> to bundle your code, <code>babel</code> for transpiling, <code>eslint</code> for linting, and so much more that the list just goes on. Unfortunaly when creating <code>electron</code> applications, all of that setup just became much more difficult. The primary aim of <code>electron-webpack</code> is to eliminate all preliminary setup with one simple install so you can get back to developing your application.</p>
+<p>Modern web development practices today require a lot of setup with things like <code>webpack</code> to bundle your code, <code>babel</code> for transpiling, <code>eslint</code> for linting, and so much more that the list just goes on. Unfortunately when creating <code>electron</code> applications, all of that setup just became much more difficult. The primary aim of <code>electron-webpack</code> is to eliminate all preliminary setup with one simple install so you can get back to developing your application.</p>
 <blockquote>
 <p>Why create a module and not a full boilerplate?</p>
 </blockquote>
@@ -380,7 +380,7 @@
 <li>Use of <a href="https://webpack.js.org/" target="_blank"><code>webpack</code></a> for source code bundling</li>
 <li>Use of <a href="https://github.com/webpack/webpack-dev-server" target="_blank"><code>webpack-dev-server</code></a> for development</li>
 <li>HMR for both <code>renderer</code> and <code>main</code> processes</li>
-<li>Use of <a href="https://github.com/babel/babel-preset-env" target="_blank"><code>babel-preset-env</code></a> that is automatically configured based on your <code>electron</code> version</li>
+<li>Use of <a href="https://github.com/babel/babel/tree/master/packages/babel-preset-env" target="_blank"><code>@babel/preset-env</code></a> that is automatically configured based on your <code>electron</code> version</li>
 <li>Ability to add custom <code>webpack</code> loaders, plugins, etc.</li>
 <li><a href="add-ons">Add-ons</a> to support items like <a href="http://www.typescriptlang.org/" target="_blank">TypeScript</a>, <a href="http://lesscss.org/" target="_blank">Less</a>, <a href="http://www.embeddedjs.com/" target="_blank">EJS</a>, etc.</li>
 </ul>
@@ -398,7 +398,7 @@ rm -rf .git
 <span class="hljs-comment"># install dependencies</span>
 yarn
 </code></pre>
-<p>If you already have an existing project, or are looking for a custom approach outside of the quick start template, make sure to read over the <a href="core-concepts">Core Concepts</a>, <a href="project-structure">Project Structure</a>, and <a href="development">Development</a> sections of <code>electron-webpack</code>&apos;s documentaiton.</p>
+<p>If you already have an existing project, or are looking for a custom approach outside of the quick start template, make sure to read over the <a href="core-concepts">Core Concepts</a>, <a href="project-structure">Project Structure</a>, and <a href="development">Development</a> sections of <code>electron-webpack</code>&apos;s documentation.</p>
 <h3 id="next-steps">Next Steps</h3>
 <p>Make sure to take advantage of the detailed <a href="https://webpack.electron.build" target="_blank">documentation</a> that <code>electron-webpack</code> provides. It covers everything from how things work internally, adding custom configurations, and building your application.</p>
 <script src="_gitbook_plugin_analytics.js"></script>
@@ -440,7 +440,7 @@ yarn
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Core Concepts","level":"1.2","depth":1,"path":"core-concepts.md","ref":"core-concepts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"README.md","mtime":"2017-10-16T07:18:05.971Z","type":"markdown"},"gitbook":{"version":"3.2.9","time":"2017-10-30T16:41:01.773Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Core Concepts","level":"1.2","depth":1,"path":"core-concepts.md","ref":"core-concepts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"README.md","mtime":"2018-03-18T16:30:48.856Z","type":"markdown"},"gitbook":{"version":"3.2.11","time":"2018-05-16T07:05:03.652Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
