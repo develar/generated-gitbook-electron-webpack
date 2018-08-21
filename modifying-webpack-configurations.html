@@ -1,0 +1,495 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Modifying Webpack Configurations · electron-webpack</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.11">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="using-static-assets" />
+    
+    
+    <link rel="prev" href="extending-as-a-library" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="core-concepts">
+            
+                <a href="core-concepts">
+            
+                    
+                    Core Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="development">
+            
+                <a href="development">
+            
+                    
+                    Development
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="add-ons">
+            
+                <a href="add-ons">
+            
+                    
+                    Add-ons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="configuration">
+            
+                <a href="configuration">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="cli-commands">
+            
+                <a href="cli-commands">
+            
+                    
+                    CLI Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="dll-bundle-splitting">
+            
+                <a href="dll-bundle-splitting">
+            
+                    
+                    Dll Bundle Splitting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="environment-variables">
+            
+                <a href="environment-variables">
+            
+                    
+                    Environment Variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="extending-as-a-library">
+            
+                <a href="extending-as-a-library">
+            
+                    
+                    Extending as a Library
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.7" data-path="modifying-webpack-configurations">
+            
+                <a href="modifying-webpack-configurations">
+            
+                    
+                    Modifying Webpack Configurations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="using-static-assets">
+            
+                <a href="using-static-assets">
+            
+                    
+                    Using Static Assets
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="project-structure">
+            
+                <a href="project-structure">
+            
+                    
+                    Project Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="building">
+            
+                <a href="building">
+            
+                    
+                    Building
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Miscellaneous
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="dependency-management">
+            
+                <a href="dependency-management">
+            
+                    
+                    Dependency Management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="technical-differences-of-electron-compile">
+            
+                <a href="technical-differences-of-electron-compile">
+            
+                    
+                    Technical Differences of electron-compile
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Modifying Webpack Configurations</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="modifying-webpack-configurations">Modifying Webpack Configurations</h1>
+<p>Another great benefit of using <code>electron-wepback</code> is that you are never restricted to an abstracted API. Of course there isn&apos;t a configuration that fits everybody&apos;s need, and <code>electron-webpack</code> is aware of that.</p>
+<p>Thanks to the power of <code>webpack-merge</code>, it is possible to apply your own webpack loaders, plugins, etc. You can easily define your own webpack additions, and <code>electron-webpack</code> will internally merge those additions with its predefined configuration. The benefit of using this method, as opposed to <a href="extending-as-a-library">Extending as a Library</a>, is that you don&apos;t lose access to using the <code>electron-webpack</code> CLI, which is very beneficial for development.</p>
+<p>Custom modifications can be made for the <code>renderer</code>, <code>renderer-dll</code>, and <code>main</code> processes. Since <code>webpack-merge</code> is used, you can use the full potential of <code>webpack</code>&apos;s configuration API. See <a href="configuration">Configuration</a> for more information.</p>
+<h3 id="use-case">Use Case</h3>
+<p>Let&apos;s say our project needs to be able to import <code>*.txt</code> files in the <code>renderer</code> process. We can use <code>raw-loader</code> to get that done.</p>
+<h5 id="install-raw-loader">Install <code>raw-loader</code></h5>
+<pre><code class="lang-bash">yarn add raw-loader --dev
+</code></pre>
+<h5 id="define-raw-loader">Define <code>raw-loader</code></h5>
+<p>Notice that the full <code>webpack</code> API is usable and not blocked. You could also defined other loaders and plugins here. Please know that making major modifications may break expected behavior.</p>
+<pre><code class="lang-js"><span class="hljs-comment">/* webpack.renderer.additions.js */</span>
+
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-built_in">module</span>: {
+    rules: [
+      {
+        test: <span class="hljs-regexp">/\.txt$/</span>,
+        use: <span class="hljs-string">&apos;raw-loader&apos;</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<h5 id="define-custom-configurations">Define custom configurations</h5>
+<p>See <a href="configuration">Configuration</a> for more information.</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;electronWebpack&quot;</span>: {
+    <span class="hljs-string">&quot;renderer&quot;</span>: {
+      <span class="hljs-string">&quot;webpackConfig&quot;</span>: <span class="hljs-string">&quot;webpack.renderer.additions.js&quot;</span>
+    }
+  }
+}
+</code></pre>
+<p>Now when running <code>electron-webpack</code>&apos;s CLI, your custom additions will be loaded in and you can use them as expected. If you need even more control over the configuration, then maybe <a href="extending-as-a-library">Extending as a Library</a> can better suit your needs.</p>
+<script src="_gitbook_plugin_analytics.js"></script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="extending-as-a-library" class="navigation navigation-prev " aria-label="Previous page: Extending as a Library">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="using-static-assets" class="navigation navigation-next " aria-label="Next page: Using Static Assets">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Modifying Webpack Configurations","level":"1.3.7","depth":2,"next":{"title":"Using Static Assets","level":"1.3.8","depth":2,"path":"using-static-assets.md","ref":"using-static-assets.md","articles":[]},"previous":{"title":"Extending as a Library","level":"1.3.6","depth":2,"path":"extending-as-a-library.md","ref":"extending-as-a-library.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","github","github-buttons","analytics"],"root":"./docs/en","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/electron-userland/electron-webpack"},"analytics":{"context":[{"token":"UA-104881670-1","base":["https"]}]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"repo":"electron-userland/electron-webpack","types":["star"],"size":"small"},"sharing":{"facebook":false,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/electron-userland/electron-webpack/tree/master/docs"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"electron-webpack","links":{"sharing":{"facebook":false,"twitter":true}},"gitbook":"*"},"file":{"path":"modifying-webpack-configurations.md","mtime":"2017-10-16T07:18:05.972Z","type":"markdown"},"gitbook":{"version":"3.2.11","time":"2018-08-21T07:00:43.495Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
